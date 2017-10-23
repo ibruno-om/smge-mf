@@ -5,8 +5,10 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
-@Entity(name = "role")
+@Entity
+@Table(name = "role", schema = "app")
 public class Role extends PersistenceModel {
 
 	private static final long serialVersionUID = -3595787119981587748L;

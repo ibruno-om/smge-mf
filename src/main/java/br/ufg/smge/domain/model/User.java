@@ -7,9 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity(name = "user")
+/**
+ * @author ibruno
+ *
+ */
+@Entity
+@Table(name = "user", schema = "app")
 public class User extends PersistenceModel {
 
 	private static final long serialVersionUID = -6266790100180643052L;
@@ -27,34 +33,58 @@ public class User extends PersistenceModel {
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 
+	/**
+	 * @return
+	 */
 	public String getUsername() {
 		return username;
 	}
 
+	/**
+	 * @param username
+	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 * @param password
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getPasswordConfirm() {
 		return passwordConfirm;
 	}
 
+	/**
+	 * @param passwordConfirm
+	 */
 	public void setPasswordConfirm(String passwordConfirm) {
 		this.passwordConfirm = passwordConfirm;
 	}
 
+	/**
+	 * @return
+	 */
 	public Set<Role> getRoles() {
 		return roles;
 	}
 
+	/**
+	 * @param roles
+	 */
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}

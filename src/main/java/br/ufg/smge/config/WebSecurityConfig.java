@@ -13,19 +13,23 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	@Autowired
-    private UserDetailsService userDetailsService;
 
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-	
+	@Autowired
+	private UserDetailsService userDetailsService;
+
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/home", "/css/**", "/js/**", "images/**").permitAll().anyRequest()
-				.authenticated().and().formLogin().loginPage("/login").permitAll().and().logout().permitAll();
+		http.authorizeRequests().antMatchers("/", "/home", "/css/**", "/js/**", "images/**", "/h2/**").permitAll()
+				.anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
+				.permitAll();
+		
+		http.csrf().disable();
+		http.headers().frameOptions().disable();
 	}
 
 	@Autowired
