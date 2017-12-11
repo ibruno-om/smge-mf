@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -33,6 +34,10 @@ public class User extends PersistenceModel {
 
 	@Transient
 	private String passwordConfirm;
+	
+	@ManyToOne
+	@JoinColumn(name = "class_room_id")
+	private ClassRoom classRoom;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST })
 	@JoinTable(schema = "app", name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))

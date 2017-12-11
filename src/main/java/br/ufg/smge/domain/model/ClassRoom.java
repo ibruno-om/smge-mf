@@ -2,6 +2,7 @@ package br.ufg.smge.domain.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +23,9 @@ public class ClassRoom extends PersistenceModel {
 
 	@OneToMany(mappedBy = "classRoom")
 	private List<TimeTable> timeTables;
+
+	@OneToMany(mappedBy = "classRoom")
+	private Set<User> users;
 
 	public ClassRoom() {
 		// TODO Auto-generated constructor stub
@@ -49,6 +53,14 @@ public class ClassRoom extends PersistenceModel {
 
 	public void setTimeTables(List<TimeTable> timeTables) {
 		this.timeTables = timeTables;
+	}
+
+	public Set<User> getAlunos() {
+		return users;
+	}
+
+	public void setAlunos(Set<User> alunos) {
+		this.users = alunos;
 	}
 
 }
