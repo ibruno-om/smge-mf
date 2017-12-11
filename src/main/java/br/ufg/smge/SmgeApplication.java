@@ -28,13 +28,12 @@ public class SmgeApplication {
 	CommandLineRunner runner(UserRepository userRepository) {
 
 		Set<Role> roles = new HashSet<Role>();
-		
+
 		roles.add(new Role("ADMIN"));
 		roles.add(new Role("PROF"));
 		roles.add(new Role("STUDENT"));
-		
 
-		User admin = new User("admin", bCryptPasswordEncoder.encode("123456"), roles);
+		User admin = new User("admin", bCryptPasswordEncoder.encode("123456"), "admin@smge.com.br", roles);
 
 		return args -> {
 			userRepository.save(admin);
