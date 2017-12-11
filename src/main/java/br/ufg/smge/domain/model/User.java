@@ -1,5 +1,6 @@
 package br.ufg.smge.domain.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -27,6 +28,9 @@ public class User extends PersistenceModel {
 	@Column(name = "password")
 	private String password;
 
+	@Column(name = "email")
+	private String email;
+
 	@Transient
 	private String passwordConfirm;
 
@@ -38,11 +42,21 @@ public class User extends PersistenceModel {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String username, String password, Set<Role> roles) {
+	public User(String username, String password, String email, Set<Role> roles) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.email = email;
 		this.roles = roles;
+	}
+
+	public User(String username, String password, String email, Role role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.roles = new HashSet<Role>();
+		this.roles.add(role);
 	}
 
 	/**
@@ -99,6 +113,14 @@ public class User extends PersistenceModel {
 	 */
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
