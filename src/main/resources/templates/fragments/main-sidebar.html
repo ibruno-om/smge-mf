@@ -10,7 +10,7 @@
 			<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 		</div>
 	</div>
-	
+
 	<!-- sidebar menu: : style can be found in sidebar.less -->
 	<ul class="sidebar-menu">
 		<li class="header">Menu Principal</li>
@@ -18,12 +18,16 @@
 		<li sec:authorize="hasAnyAuthority('ADMIN')"><a href="#"> <i
 				class="fa fa-users"></i> <span>Usuários</span>
 		</a></li>
-		<li sec:authorize="hasAuthority('ADMIN')"><a href="/admin/discipline"> <i
-				class="fa fa-th-list "></i> <span>Disciplinas</span>
+		<li sec:authorize="hasAuthority('ADMIN')"><a
+			href="/admin/discipline"> <i class="fa fa-th-list "></i> <span>Disciplinas</span>
 		</a></li>
-		
-		<li sec:authorize="hasAuthority('ADMIN')"><a href="/admin/class"> <i
-				class="fa fa-th-list "></i> <span>Turmas</span>
+
+		<li sec:authorize="hasAuthority('ADMIN')"><a href="/admin/class">
+				<i class="fa fa-university"></i> <span>Turmas</span>
+		</a></li>
+
+		<li sec:authorize="hasAuthority('ADMIN')"><a
+			href="/admin/timetable"> <i class="ffa-calendar"></i> <span>Horários</span>
 		</a></li>
 
 
