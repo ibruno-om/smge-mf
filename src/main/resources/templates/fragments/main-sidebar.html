@@ -15,8 +15,8 @@
 	<ul class="sidebar-menu">
 		<li class="header">Menu Principal</li>
 
-		<li sec:authorize="hasAnyAuthority('ADMIN')"><a href="/admin/users"> <i
-				class="fa fa-users"></i> <span>Usuários</span>
+		<li sec:authorize="hasAnyAuthority('ADMIN')"><a
+			href="/admin/users"> <i class="fa fa-users"></i> <span>Usuários</span>
 		</a></li>
 		<li sec:authorize="hasAuthority('ADMIN')"><a
 			href="/admin/discipline"> <i class="fa fa-th-list "></i> <span>Disciplinas</span>
@@ -28,6 +28,10 @@
 
 		<li sec:authorize="hasAuthority('ADMIN')"><a
 			href="/admin/timetable"> <i class="fa fa-calendar"></i> <span>Horários</span>
+		</a></li>
+
+		<li sec:authorize="hasAnyAuthority('ADMIN','PROF')"><a
+			href="/prof/test"> <i class="fa fa-bar-chart"></i> <span>Avaliações</span>
 		</a></li>
 
 	</ul>
