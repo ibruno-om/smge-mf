@@ -4,14 +4,14 @@ public enum WeekDay {
 	MONDAY("Segunda-feira"), TUESDAY("Terça-feira"), WEDNESDAY("Quarta-feira"), THURSDAY("Quinta-feira"), FRIDAY(
 			"Sexta-feira");
 
-	private final String name;
+	private final String dayName;
 
 	WeekDay(String name) {
-		this.name = name;
+		this.dayName = name;
 	}
 
-	public String getName() {
-		return name;
+	public String getDayName() {
+		return dayName;
 	}
 
 }

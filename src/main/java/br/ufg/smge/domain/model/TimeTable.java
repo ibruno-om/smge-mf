@@ -1,5 +1,6 @@
 package br.ufg.smge.domain.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -26,7 +27,20 @@ public class TimeTable extends PersistenceModel {
 	@Enumerated(EnumType.STRING)
 	private WeekDay day;
 
+	@Column(name = "ordinal_time")
 	private Integer ordinalTime;
+	
+	public TimeTable() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public TimeTable(Discipline discipline, ClassRoom classRoom, WeekDay day, Integer ordinalTime) {
+		super();
+		this.discipline = discipline;
+		this.classRoom = classRoom;
+		this.day = day;
+		this.ordinalTime = ordinalTime;
+	}
 
 	public Discipline getDiscipline() {
 		return discipline;
