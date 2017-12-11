@@ -2,6 +2,7 @@ package br.ufg.smge.domain.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -29,9 +30,20 @@ public class User extends PersistenceModel {
 	@Transient
 	private String passwordConfirm;
 
-	@ManyToMany
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@ManyToMany(cascade = { CascadeType.PERSIST })
+	@JoinTable(schema = "app", name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
+
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(String username, String password, Set<Role> roles) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.roles = roles;
+	}
 
 	/**
 	 * @return

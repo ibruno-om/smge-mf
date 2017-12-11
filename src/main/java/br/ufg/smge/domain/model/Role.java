@@ -16,6 +16,15 @@ public class Role extends PersistenceModel {
 	@Column(name = "name")
 	private String name;
 
+	public Role() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Role(String name) {
+		super();
+		this.name = name;
+	}
+
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users;
 

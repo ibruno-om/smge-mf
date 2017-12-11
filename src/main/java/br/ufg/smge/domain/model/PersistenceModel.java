@@ -12,6 +12,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 @MappedSuperclass
 public class PersistenceModel implements Serializable {
@@ -29,6 +30,9 @@ public class PersistenceModel implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "dta_atualizacao")
 	private Date updatedAt;
+
+	@Version
+	private Integer version;
 
 	/**
 	 * 
@@ -68,6 +72,14 @@ public class PersistenceModel implements Serializable {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
 	}
 
 }
