@@ -22,6 +22,20 @@ public class Test extends PersistenceModel {
 	@Column(name = "max_grade", scale = 2)
 	private BigDecimal maxGrade;
 
+	@Column(name = "description")
+	private String description;
+
+	public Test() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Test(Date expirationDate, BigDecimal maxGrade, String description) {
+		super();
+		this.expirationDate = expirationDate;
+		this.maxGrade = maxGrade;
+		this.setDescription(description);
+	}
+
 	public Date getExpirationDate() {
 		return expirationDate;
 	}
@@ -36,6 +50,14 @@ public class Test extends PersistenceModel {
 
 	public void setMaxGrade(BigDecimal maxGrade) {
 		this.maxGrade = maxGrade;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

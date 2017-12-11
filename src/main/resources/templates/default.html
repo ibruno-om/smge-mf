@@ -23,6 +23,10 @@
 
 <link rel="stylesheet" href="../static/css/AdminLTE.min.css"
 	th:href="@{/css/AdminLTE.min.css}" />
+	
+<link rel="stylesheet" href="../static/css/jquery-ui-1.9.2.custom.min.css"
+	th:href="@{/css/jquery-ui-1.9.2.custom.min.css}" />
+
 
 
 </head>
@@ -73,9 +77,12 @@
 	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 	<script>
 		$.widget.bridge('uibutton', $.ui.button);
+		$( ".input-date" ).datepicker({ dateFormat: 'dd/mm/yy' });
 	</script>
 	<script src="../static/js/bootstrap.min.js"
 		th:src="@{/js/bootstrap.min.js}" />
+	<script src="../static/js/bootstrap-datepicker.min.js"
+		th:src="@{/js/bootstrap-datepicker.min.js}" />
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 
